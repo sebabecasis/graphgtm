@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "graphgtm"
+version = "0.1.0"
+description = "Network analysis and evidence-backed search for GTM ecosystems"
+requires-python = ">=3.11"
+dependencies = [
+  "networkx>=3.2,<4"
+]
+
+[project.scripts]
+graphgtm = "graphgtm.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

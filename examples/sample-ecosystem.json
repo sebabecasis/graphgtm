@@ -1,0 +1,80 @@
+{
+  "nodes": [
+    {
+      "id": "ada",
+      "name": "Ada Systems",
+      "role": "Founder",
+      "profile": "Builds infrastructure for reliable AI agents used by engineering teams.",
+      "evidence": [
+        "Developer teams need observable agent workflows, not opaque autonomous demos."
+      ]
+    },
+    {
+      "id": "ben",
+      "name": "Ben Tools",
+      "role": "Engineer",
+      "profile": "Creates developer tooling for testing and deploying model-powered software.",
+      "evidence": [
+        "The next generation of engineering infrastructure will make agent behaviour testable."
+      ]
+    },
+    {
+      "id": "chloe",
+      "name": "Chloe Flow",
+      "role": "Operator",
+      "profile": "Turns experimental automation into governed workflows for technical teams.",
+      "evidence": [
+        "Human review is essential when workflow automation affects a customer."
+      ]
+    },
+    {
+      "id": "morgan",
+      "name": "Morgan Bridge",
+      "role": "Community builder",
+      "profile": "Connects builder communities with revenue and operations leaders adopting new infrastructure.",
+      "evidence": [
+        "Strong networks translate technical capability into practical go-to-market learning."
+      ]
+    },
+    {
+      "id": "diego",
+      "name": "Diego Revenue",
+      "role": "Revenue leader",
+      "profile": "Designs measurable go-to-market systems for specialist B2B companies.",
+      "evidence": [
+        "Revenue operations should connect campaign decisions to evidence and measurement."
+      ]
+    },
+    {
+      "id": "erin",
+      "name": "Erin Outbound",
+      "role": "GTM operator",
+      "profile": "Builds structured outbound programmes with clear review gates.",
+      "evidence": [
+        "Repeatable sales workflows outperform isolated automation experiments."
+      ]
+    },
+    {
+      "id": "farah",
+      "name": "Farah Signals",
+      "role": "Analyst",
+      "profile": "Uses market signals and analytics to improve targeting and campaign design.",
+      "evidence": [
+        "Marketing teams need evidence for why an account matches a campaign thesis."
+      ]
+    }
+  ],
+  "edges": [
+    {"source": "ada", "target": "ben", "weight": 3},
+    {"source": "ben", "target": "chloe", "weight": 3},
+    {"source": "chloe", "target": "ada", "weight": 3},
+    {"source": "morgan", "target": "ben", "weight": 2},
+    {"source": "morgan", "target": "chloe", "weight": 2},
+    {"source": "diego", "target": "erin", "weight": 3},
+    {"source": "erin", "target": "farah", "weight": 3},
+    {"source": "farah", "target": "diego", "weight": 3},
+    {"source": "morgan", "target": "diego", "weight": 2},
+    {"source": "morgan", "target": "erin", "weight": 2}
+  ]
+}
+

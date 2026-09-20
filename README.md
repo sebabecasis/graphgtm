@@ -4,7 +4,7 @@ Map a buyer ecosystem, identify its communities and important nodes, then use se
 
 ## Repository status
 
-Scaffolded for generalisation from the private, application-specific OdinGraph implementation.
+The first analytical slice is implemented using a safe synthetic network.
 
 The first working slice will demonstrate:
 
@@ -18,4 +18,33 @@ seed network
 ```
 
 See [`MIGRATION.md`](MIGRATION.md) for the source boundary and extraction plan.
+
+## Run the example
+
+Requires Python 3.11+.
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -e .
+
+graphgtm analyze \
+  --graph examples/sample-ecosystem.json \
+  --out .demo/analysis.json
+
+graphgtm search \
+  --graph examples/sample-ecosystem.json \
+  --query "networks connecting technical builders to go-to-market" \
+  --out .demo/entry-points.json
+```
+
+Every search result retains the profile or evidence passage that caused the match. The entry-point ranking combines that relevance with PageRank, betweenness and cross-community participation.
+
+## Test
+
+```bash
+PYTHONPATH=src python -m unittest discover -s tests -v
+```
+
+See [`docs/architecture.md`](docs/architecture.md) for the analytical boundaries and current limits.
 
