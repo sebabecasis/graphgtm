@@ -17,8 +17,6 @@ seed network
 → suggested GTM entry points
 ```
 
-See [`MIGRATION.md`](MIGRATION.md) for the source boundary and extraction plan.
-
 ## Run the example
 
 Requires Python 3.11+.
