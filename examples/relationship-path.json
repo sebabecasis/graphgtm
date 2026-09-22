@@ -1,0 +1,35 @@
+{
+  "directed": true,
+  "nodes": [
+    {
+      "id": "operator",
+      "name": "Operator (synthetic)"
+    },
+    {
+      "id": "bridge",
+      "name": "Community bridge (synthetic)"
+    },
+    {
+      "id": "target",
+      "name": "Target (synthetic)"
+    },
+    {
+      "id": "disconnected",
+      "name": "No known route (synthetic)"
+    }
+  ],
+  "edges": [
+    {
+      "source": "operator",
+      "target": "bridge",
+      "evidence": "Synthetic fixture: operator follows bridge.",
+      "source_url": "https://example.test/relationships/operator"
+    },
+    {
+      "source": "bridge",
+      "target": "target",
+      "evidence": "Synthetic fixture: bridge follows target.",
+      "source_url": "https://example.test/relationships/bridge"
+    }
+  ]
+}

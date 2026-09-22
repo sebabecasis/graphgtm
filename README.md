@@ -6,17 +6,18 @@ Map a buyer ecosystem, identify its communities and important nodes, then use se
 
 ## Repository status
 
-The first analytical slice is implemented using a safe synthetic network.
+Structural analysis, evidence-preserving search and directed source-to-target routes are implemented with synthetic examples. Search supports --encoder openai with OPENAI_API_KEY; demo remains the credential-free default.
 
-The first working slice will demonstrate:
+The implemented workflow is:
 
 ```text
-seed network
-→ graph expansion
+supplied network
+→ validate nodes and relationships
 → communities and bridge nodes
 → semantic search
 → relevant profiles and evidence
 → suggested GTM entry points
+→ evidence-backed source/target routes
 ```
 
 ## Run the example

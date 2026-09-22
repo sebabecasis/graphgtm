@@ -13,7 +13,7 @@ import networkx as nx
 
 def load_graph(path: str | Path) -> nx.Graph:
     data = json.loads(Path(path).read_text())
-    graph = nx.Graph()
+    graph = nx.DiGraph() if data.get("directed", False) else nx.Graph()
     for node in data.get("nodes", []):
         node_id = str(node["id"])
         attrs = {key: value for key, value in node.items() if key != "id"}
@@ -23,7 +23,9 @@ def load_graph(path: str | Path) -> nx.Graph:
         target = str(edge["target"])
         if source not in graph or target not in graph:
             raise ValueError(f"Edge references an unknown node: {source!r} -> {target!r}")
-        graph.add_edge(source, target, weight=float(edge.get("weight", 1.0)))
+        attrs = {key: value for key, value in edge.items() if key not in {"source", "target"}}
+        attrs["weight"] = float(edge.get("weight", 1.0))
+        graph.add_edge(source, target, **attrs)
     if not graph.nodes:
         raise ValueError("Graph fixture has no nodes")
     return graph
@@ -124,6 +126,8 @@ def _pagerank(
 
 
 def analyze_graph(graph: nx.Graph, *, resolution: float = 1.0, seed: int = 42) -> dict[str, Any]:
+    # Structural communities use an undirected projection; routes preserve direction.
+    graph = graph.to_undirected() if graph.is_directed() else graph
     communities = _community_map(graph, resolution=resolution, seed=seed)
     pagerank = _pagerank(graph)
     betweenness = nx.betweenness_centrality(graph, normalized=True, weight=None)
