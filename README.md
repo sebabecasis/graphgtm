@@ -1,5 +1,7 @@
 # GraphGTM
 
+For agent-assisted operation, start with [AGENTS.md](AGENTS.md). Claude Code loads the same guide through [CLAUDE.md](CLAUDE.md).
+
 Map a buyer ecosystem, identify its communities and important nodes, then use semantic search to find relevant people and evidence within it.
 
 ## Repository status
@@ -45,4 +47,3 @@ PYTHONPATH=src python -m unittest discover -s tests -v
 ```
 
 See [`docs/architecture.md`](docs/architecture.md) for the analytical boundaries and current limits.
-
